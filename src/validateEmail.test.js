@@ -42,8 +42,10 @@ describe(`Function 'validateEmail':`, () => {
     expect(validateEmail('test@mailcom')).toBeFalsy();
   });
 
-  it(`should accept special characters`, () => {
-    expect(validateEmail('%test#-|}one!$@mail.com')).toBeTruthy();
+  it(`should not accept special characters
+  ! $ % & ' * + / = ? ^ { | } ~`, () => {
+    expect(validateEmail('%test#-|}one!!$%&\'*+/=?^{|}~$@mail.com'))
+      .toBeFalsy();
   });
 
   it(`should accept digits`, () => {
