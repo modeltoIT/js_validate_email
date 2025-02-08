@@ -16,13 +16,11 @@ describe(`Function 'validateEmail':`, () => {
       .toBeTruthy();
   });
 
-  it(`should return code 422 and message Email is invalid.
-  if email has characters outside of \`Aa-Zz, 0-9\``, () => {
+  it(`should not accept characters outside of \`Aa-Zz, 0-9\``, () => {
     expect(validateEmail('testŞ@mail.com')).toBeFalsy();
   });
 
-  it(`should return code 422 and message Email is invalid.
-  if email has characters outside of \`Aa-Zz, 0-9\``, () => {
+  it(`should not accept  characters outside of \`Aa-Zz, 0-9\``, () => {
     expect(validateEmail('testС@mail.com')).toBeFalsy();
   });
 
